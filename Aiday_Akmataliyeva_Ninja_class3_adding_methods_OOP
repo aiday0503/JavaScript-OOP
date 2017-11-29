@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  <body>
+      <script>
+     cclass Ninja{
+    constructor(name) {
+      this.name = name;
+      this.health = 100;
+      this.speed = 3;
+      this.strength = 3;
+    }
+    
+    sayName() {
+      console.log(`My ninja name is ${this.name}`);
+    }
+    showStats() {
+      console.log(`Name: ${this.name}, Health: ${this.health}, Speed: ${this.speed}, Strength: ${this.strength}`);
+    }
+    drinkSake() {
+      this.health += 10;
+      return this;
+    }
+
+  }
+
+  // Part II
+  class Sensei extends Ninja {
+    constructor(name) {
+      super(name);
+      this.speed = 10;
+      this.strength = 10;
+      this.wisdom = 10;
+      this.health = 200;
+    }
+
+    speakWisdom() {
+      super.drinkSake();
+      console.log("One head is good, but two is better.");
+    }
+
+    showStats() {
+      console.log(`Name: ${this.name}, Health: ${this.health}, Speed: ${this.speed}, Strength: ${this.strength}, Wisdom: ${this.wisdom}`);
+    }
+  }
+
+  const superSensei = new Sensei("Master Hatiko");
+  superSensei.speakWisdom();
+  superSensei.showStats();
+      </script>
+    </body>
+</html>

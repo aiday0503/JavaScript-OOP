@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  <body>
+      <script>
+     function Ninja(name) {
+      this.name = name;
+      this.health = 100;
+      let speed = 3;
+      let strength = 3;
+
+      this.showStats = function() {
+        console.log("Name: " + this.name + ", Health: " + this.health + ", Speed: " + speed + ", Strength: " + strength);
+        return this;
+      }
+
+      Ninja.prototype.kick = function(ninja) {
+        const damage = strength * 5;
+        ninja.health -= damage;
+        console.log(ninja.name + " was kicked by " + this.name + " and lost " + damage + " Health!");
+        return this;
+      }
+    }
+
+    Ninja.prototype.punch = function(ninja) {
+      ninja.health -= 5;
+      console.log(ninja.name + " was punched by " + this.name + " and lost 5 Health!");
+      return this;
+    }
+
+    Ninja.prototype.sayName = function() {
+      console.log("My name is " + this.name);
+      return this;
+    }
+
+    Ninja.prototype.drinkSake = function() {
+      this.health += 10;
+      return this;
+    }
+
+    const ninja1 = new Ninja("Miguel");
+    const ninja2 = new Ninja("Apache");
+
+    ninja1.sayName();
+    ninja2.sayName();
+
+    ninja1.punch(ninja2);
+    ninja2.kick(ninja1);
+
+    ninja1.showStats();
+    ninja2.showStats();
+
+
+
+      </script>
+    </body>
+</html>
